@@ -11,6 +11,7 @@ Example usage:
     3.141592653589793
     >>> list(auto.itertools.combinations(range(1,6),2))
     [(1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (3, 5), (4, 5)]
+
     >>> from auto import *
     >>> math.exp(1)
     2.718281828459045
@@ -40,5 +41,3 @@ Version 0.0
 
 * Python 3 only.
 * imports for most standard libraries
-
-
