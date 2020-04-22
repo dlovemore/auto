@@ -3,6 +3,18 @@ import importlib as _importlib
 imported_modules = {}
 
 class Importer:
+    class GWrap:
+        def __init__(self,g):
+            self.g=g.g if isinstance(g, type(self)) else g
+            self.s=set(list(self.g))
+        def __getitem__(self,k):
+            return self.g.__getitem__(k)
+        def __setitem__(self,k,v):
+            return self.g.__setitem__(k,v)
+        def __delitem__(self,k):
+            return self.g.__delitem__(k)
+        def __contains__(self,k):
+            return k in self.s
     def __init__(self, s, *subs):
         self.s=s
         self.subs=subs
@@ -23,6 +35,27 @@ class Importer:
                     sub=('.'.join((self.s, attr)),)+sub[1:]
                 setattr(mod,attr,Importer(*sub))
         return getattr(mod,a)
+    def __rsub__(self,globs):
+        g=self.GWrap(globs)
+        for k in dir(self):
+            if k[0]!='_':
+                v=getattr(self, k)
+                if k in g:
+                    if g[k] is not v:
+                        print('auto.Importer: Not removing %1s from %2s' %(k, self.s))
+                    del g[k]
+        return g
+    def __radd__(self,globs):
+        g=self.GWrap(globs)
+        for k in dir(self):
+            if k[0]!='_':
+                v=getattr(self, k)
+                if k in g:
+                    if g[k] is not v:
+                        print('auto.Importer: Not importing %1s from %2s' %(k, self.s))
+                else:
+                    g[k]=v
+        return g
     def __dir__(self):
         return dir(self.module())
     def __repr__(self):

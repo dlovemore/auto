@@ -1,8 +1,8 @@
 # >>> import auto
+# >>> type(auto)
+# <class 'module'>
 # >>> webbrowser
-# Traceback (most recent call last):
-#   File "<console>", line 1, in <module>
-# NameError: name 'webbrowser' is not defined
+# <3>:1: NameError: name 'webbrowser' is not defined
 # >>> auto.webbrowser
 # Importer('webbrowser')
 # >>> dir(auto.webbrowser)
@@ -25,6 +25,8 @@
 # >>> 
 # >>> auto.autos()
 # 'import webbrowser\nimport xml\nimport xml.etree'
+# >>> 
+# >>> 
 # >>> 
 # >>> from auto import *
 # >>> http
@@ -61,10 +63,72 @@
 # 3.141592653589793
 # >>> math
 # Importer('math')
-# >>> dir(math)
-# ['__doc__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan', 'pi', 'pow', 'radians', 'remainder', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'tau', 'trunc']
+# >>> m=dir(math)
+# >>> a=dir()
+# >>> from math import *
+# >>> b=dir()
+# >>> set(b)-set(a)
+# {'isfinite', 'nan', 'sin', 'a', 'atanh', 'fsum', 'isclose', 'ldexp', 'degrees', 'pi', 'gcd', 'fabs', 'log10', 'radians', 'asin', 'expm1', 'isnan', 'trunc', 'ceil', 'isinf', 'inf', 'erfc', 'gamma', 'modf', 'erf', 'tau', 'e', 'cosh', 'lgamma', 'tan', 'acos', 'exp', 'hypot', 'atan', 'log2', 'frexp', 'tanh', 'log', 'sqrt', 'fmod', 'copysign', 'acosh', 'sinh', 'pow', 'log1p', 'asinh', 'floor', 'atan2', 'cos', 'remainder', 'factorial'}
+# >>> _^set(m)
+# {'a', '__name__', '__package__', '__loader__', '__doc__', '__spec__'}
+# >>> 'a' in globals()
+# True
+# >>> d=dict()
+# >>> 
+# >>> d+math
+# <auto.Importer.GWrap object at 0xb6343630>
+# >>> _.g
+# {'acos': <built-in function acos>, 'acosh': <built-in function acosh>, 'asin': <built-in function asin>, 'asinh': <built-in function asinh>, 'atan': <built-in function atan>, 'atan2': <built-in function atan2>, 'atanh': <built-in function atanh>, 'ceil': <built-in function ceil>, 'copysign': <built-in function copysign>, 'cos': <built-in function cos>, 'cosh': <built-in function cosh>, 'degrees': <built-in function degrees>, 'e': 2.718281828459045, 'erf': <built-in function erf>, 'erfc': <built-in function erfc>, 'exp': <built-in function exp>, 'expm1': <built-in function expm1>, 'fabs': <built-in function fabs>, 'factorial': <built-in function factorial>, 'floor': <built-in function floor>, 'fmod': <built-in function fmod>, 'frexp': <built-in function frexp>, 'fsum': <built-in function fsum>, 'gamma': <built-in function gamma>, 'gcd': <built-in function gcd>, 'hypot': <built-in function hypot>, 'inf': inf, 'isclose': <built-in function isclose>, 'isfinite': <built-in function isfinite>, 'isinf': <built-in function isinf>, 'isnan': <built-in function isnan>, 'ldexp': <built-in function ldexp>, 'lgamma': <built-in function lgamma>, 'log': <built-in function log>, 'log10': <built-in function log10>, 'log1p': <built-in function log1p>, 'log2': <built-in function log2>, 'modf': <built-in function modf>, 'nan': nan, 'pi': 3.141592653589793, 'pow': <built-in function pow>, 'radians': <built-in function radians>, 'remainder': <built-in function remainder>, 'sin': <built-in function sin>, 'sinh': <built-in function sinh>, 'sqrt': <built-in function sqrt>, 'tan': <built-in function tan>, 'tanh': <built-in function tanh>, 'tau': 6.283185307179586, 'trunc': <built-in function trunc>}
+# >>> g=globals()
+# >>> 
+# >>> d-math+webbrowser
+# <auto.Importer.GWrap object at 0xb6343070>
+# >>> _ and _.g or _
+# {'BackgroundBrowser': <class 'webbrowser.BackgroundBrowser'>, 'BaseBrowser': <class 'webbrowser.BaseBrowser'>, 'Chrome': <class 'webbrowser.Chrome'>, 'Chromium': <class 'webbrowser.Chrome'>, 'Elinks': <class 'webbrowser.Elinks'>, 'Error': <class 'webbrowser.Error'>, 'Galeon': <class 'webbrowser.Galeon'>, 'GenericBrowser': <class 'webbrowser.GenericBrowser'>, 'Grail': <class 'webbrowser.Grail'>, 'Konqueror': <class 'webbrowser.Konqueror'>, 'Mozilla': <class 'webbrowser.Mozilla'>, 'Netscape': <class 'webbrowser.Netscape'>, 'Opera': <class 'webbrowser.Opera'>, 'UnixBrowser': <class 'webbrowser.UnixBrowser'>, 'get': <function get at 0xb649f030>, 'main': <function main at 0xb637b150>, 'open': <function open at 0xb649f078>, 'open_new': <function open_new at 0xb649f420>, 'open_new_tab': <function open_new_tab at 0xb649f468>, 'os': <module 'os' from '/usr/lib/python3.7/os.py'>, 'register': <function register at 0xb64b7cd8>, 'register_X_browsers': <function register_X_browsers at 0xb637acd8>, 'register_standard_browsers': <function register_standard_browsers at 0xb637b108>, 'shlex': <module 'shlex' from '/usr/lib/python3.7/shlex.py'>, 'shutil': <module 'shutil' from '/usr/lib/python3.7/shutil.py'>, 'subprocess': <module 'subprocess' from '/usr/lib/python3.7/subprocess.py'>, 'sys': <module 'sys' (built-in)>, 'threading': <module 'threading' from '/usr/lib/python3.7/threading.py'>}
+# >>> 
+# >>> 
+# >>> 1 and 2
+# 2
+# >>> 2 and 1
+# 1
+# >>> 
+# >>> 
+# >>> 
+# >>> chain
+# <62>:1: NameError: name 'chain' is not defined
+# >>> globals()+itertools
+# <auto.Importer.GWrap object at 0xb639dd30>
+# >>> chain
+# <56>:1: NameError: name 'chain' is not defined
+# >>> 
+# >>> 
+# >>> dir(itertools)
+# <59>:1: NameError: name 'itertools' is not defined
+# >>> globals()+itertools
+# <60>:1: NameError: name 'itertools' is not defined
+# >>> chain
+# <61>:1: NameError: name 'chain' is not defined
+# >>> 
+# >>> 
+# >>> dict
+# <class 'dict'>
+# >>> pi
+# 3.141592653589793
+# >>> globals()+itertools-math
+# <66>:1: NameError: name 'itertools' is not defined
+# >>> pi
+# 3.141592653589793
+# >>> globals().get('pi')
+# 3.141592653589793
+# >>> 
+# >>> 
+# >>> 
+# >>> 'x' in globals()
+# False
+# >>> 
+# >>> 
 # >>> autos()
-# 'import http\nimport math\nimport webbrowser\nimport xml\nimport xml.etree'
+# 'import http\nimport itertools\nimport math\nimport webbrowser\nimport xml\nimport xml.etree'
 # >>> dir(itertools)
 # ['__doc__', '__loader__', '__name__', '__package__', '__spec__', '_grouper', '_tee', '_tee_dataobject', 'accumulate', 'chain', 'combinations', 'combinations_with_replacement', 'compress', 'count', 'cycle', 'dropwhile', 'filterfalse', 'groupby', 'islice', 'permutations', 'product', 'repeat', 'starmap', 'takewhile', 'tee', 'zip_longest']
 # >>> itertools
